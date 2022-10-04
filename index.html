@@ -15,7 +15,10 @@
         html,
         body {
             height: 100%;
-            font-family: 'Merriweather Sans', sans-serif;
+            /*---------------------------------New addition/change to font-family, font-weight, color------------------------------------------*/
+            font-family: 'Arial';
+            font-weight: bold;
+            color: green;
             scroll-behavior: smooth;
         }
 
@@ -77,6 +80,12 @@
         .next a {
             color: rgb(33, 37, 41);
         }
+        /*--------------------New addition ---> CSS for #about-summary----------------------------------------------------------------*/
+        #about-summary {
+            font-family: "Arial";
+            color: blue;
+        }
+        
     </style>
 </head>
 
@@ -99,12 +108,15 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#contact">Contact</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
             </ul>
         </div>
     </nav>
     <div class="container landing d-flex justify-content-center flex-column align-items-center" id="landing">
         <div class="row mx-auto">
-            <h4 class="display-4 font-weight-bold mx-auto text-center">Hello, I'm John!</h4>
+            <h4 class="display-4 font-weight-bold mx-auto text-center">Hello, I'm Asa!</h4>
         </div>
         <div class="row mx-auto">
             <h5 class="display-5 mx-auto faded text-center">I'm an Information Science & Technology Student at Temple
@@ -141,6 +153,10 @@
             </div>
             <div class="col">
                 <a href="#contact"><button type="button" class="btn btn-outline">Contact</button></a>
+            </div>
+            /*--------------------------New addition -->An about button-------------------------------------------*/
+            <div class="col">
+                <a href="about"><button type="button" class="btn btn-outline">About</button></a>
             </div>
         </div>
         <div class="row mt-5 next">
@@ -244,7 +260,57 @@
         <div class="row mt-5">
             <a href="#landing"><button type="button" class="btn btn-outline">Return to Top</button></a>
         </div>
+     /*--------------------------New additions --->Bootstrap components added as testers!!!!!!------------------------------------------------------------------*/
+        <div class="alert alert-primary" role="alert">
+          This is a alert that you are here!
+        </div>
+        <footer aria-label="Page navigation">
+          <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+          </ul>
+        </footer>
     </div>
+    /*----------------------------New addition ---->The about summary---------------------------------------------------------------------- */
+    <div class="container landing d-flex justify-content-center flex-column align-items-center" id="about">
+        <div class="row mx-auto">
+            <h4 class="display-4 font-weight-bold mx-auto text-center">About</h4>
+        </div>
+        <div class="row w-100 justify-content-center my-3">
+            <div class="col text-center about">
+                <p id="about-summary">Here's just a little bit about me. I am on my senior year as an undergrad. I am currently exploring for possible internships.
+                 Something fun/interesting about me is that I became a vegan for 3 years.</p>
+            </div>
+        </div>
+    </div>
+    /*-------------------------------New addition --->Bootstrap utilities------------------------------------------------------------------*/
+    @import "bootstrap/scss/functions";
+    @import "bootstrap/scss/variables";
+    @import "bootstrap/scss/utilities";
+
+    $utilities: map-merge(
+      $utilities, (
+        "border": map-merge(
+          map-get($utilities, "border"),
+          ( responsive: true ),
+        ),
+      )
+    );
+    $utilities: (
+      "background-color": (
+        property: background-color,
+        class: bg,
+        local-vars: (
+          "bg-opacity": 1
+        ),
+        values: map-merge(
+          $utilities-bg-colors,
+          (
+            "transparent": transparent
+          )
+        )
+      )
+    );
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
